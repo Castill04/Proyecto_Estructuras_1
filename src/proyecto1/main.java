@@ -17,7 +17,8 @@ import javax.swing.JFileChooser;
 public class main {    
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
-        Grafo grafo = new Grafo();
+        Grafo grafo;
+        grafo = new Grafo();
 
         JFileChooser fileChooser = new JFileChooser();
         int resultado = fileChooser.showOpenDialog(null);
