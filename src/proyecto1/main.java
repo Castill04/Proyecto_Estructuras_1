@@ -9,6 +9,7 @@ package proyecto1;
  *
  * @author casti
  */
+import Interfaces.newpackage.FunctionalRequirements;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,7 +18,9 @@ import javax.swing.JFileChooser;
 public class main {    
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+        FunctionalRequirements window = new FunctionalRequirements(); 
         Grafo grafo = new Grafo();
+        
 
         JFileChooser fileChooser = new JFileChooser();
         int resultado = fileChooser.showOpenDialog(null);
@@ -32,4 +35,7 @@ public class main {
             }
         }
     }
+    
+    
+
 }
