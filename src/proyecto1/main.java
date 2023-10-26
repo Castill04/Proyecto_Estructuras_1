@@ -18,6 +18,7 @@ import javax.swing.JFileChooser;
 public class main {    
 
     public static void main(String[] args) throws FileNotFoundException, IOException {
+
         FunctionalRequirements window = new FunctionalRequirements(); 
         Grafo grafo = new Grafo();
         
