@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package Interfaces.newpackage;
+package Interfaces;
 
 /**
  *
  * @author yaxim
  */
-public class FunctionalRequirements extends javax.swing.JFrame {
+public class FunctionalRequirements_old extends javax.swing.JFrame {
 
     /**
      * Creates new form FunctionalRequirements
      */
-    public FunctionalRequirements() {
+    public FunctionalRequirements_old() {
         initComponents();
     }
 
@@ -41,18 +41,18 @@ public class FunctionalRequirements extends javax.swing.JFrame {
         AgregarUser = new javax.swing.JButton();
         DeleteUser = new javax.swing.JButton();
         ViewGrafo = new javax.swing.JButton();
-        AgregarRelacion = new javax.swing.JButton();
         IdentificadorComponentes = new javax.swing.JButton();
         ActulizarRepositorio = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
 
         Bienvenida.setColumns(20);
         Bienvenida.setRows(5);
         Bienvenida.setText("Bienvenidos");
         jScrollPane1.setViewportView(Bienvenida);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/newpackage/OLas.jpeg"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/OLas.jpeg"))); // NOI18N
 
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/newpackage/Olas 1.jpg"))); // NOI18N
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interfaces/Olas 1.jpg"))); // NOI18N
         jLabel5.setText("jLabel5");
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
@@ -88,7 +88,7 @@ public class FunctionalRequirements extends javax.swing.JFrame {
         jPanel1.add(CargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 130, 180, 30));
 
         jLabel7.setText(" Haga Click en la opción que desee realizar!!");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 110, -1, -1));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, -1, -1));
 
         AgregarUser.setText("Agregar usuario");
         AgregarUser.addActionListener(new java.awt.event.ActionListener() {
@@ -109,28 +109,20 @@ public class FunctionalRequirements extends javax.swing.JFrame {
         });
         jPanel1.add(ViewGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, 180, 30));
 
-        AgregarRelacion.setText("Agregar relacion");
-        AgregarRelacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarRelacionActionPerformed(evt);
-            }
-        });
-        jPanel1.add(AgregarRelacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, 180, 30));
-
         IdentificadorComponentes.setText("Identificador de componentes");
         jPanel1.add(IdentificadorComponentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 200, 30));
 
         ActulizarRepositorio.setText("Actualizar repositorio");
         jPanel1.add(ActulizarRepositorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, 180, 30));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 710, 490));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/newpackage/newpackage/Sin título-3_page-0001.jpg"))); // NOI18N
+        jLabel8.setText("jLabel8");
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 720, 500));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 20, 710, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void AgregarRelacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRelacionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarRelacionActionPerformed
 
     private void ViewGrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewGrafoActionPerformed
         // TODO add your handling code here:
@@ -161,27 +153,27 @@ public class FunctionalRequirements extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FunctionalRequirements.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FunctionalRequirements_old.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FunctionalRequirements.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FunctionalRequirements_old.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FunctionalRequirements.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FunctionalRequirements_old.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FunctionalRequirements.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FunctionalRequirements_old.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FunctionalRequirements().setVisible(true);
+                new FunctionalRequirements_old().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActulizarRepositorio;
-    private javax.swing.JButton AgregarRelacion;
     private javax.swing.JButton AgregarUser;
     private javax.swing.JTextArea Bienvenida;
     private javax.swing.JButton CargarArchivo;
@@ -196,6 +188,7 @@ public class FunctionalRequirements extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
