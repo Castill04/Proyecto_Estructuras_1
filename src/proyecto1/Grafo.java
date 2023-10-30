@@ -21,32 +21,39 @@ import javax.swing.*;
  * @author casti
  */
 public class Grafo {
-    private List<String> usuario;
-    private List<List<String>> conexiones;
+    private List<Vertice> usuario;
     private int[][] matrizAdyacencia;
     private int numVertices;
     private int numUsuarios;
 
     public Grafo() {
         this.usuario = new ArrayList<>();
-        this.conexiones = new ArrayList<>();
         this.matrizAdyacencia = new int[numVertices][numVertices];
         this.numUsuarios = 0;
     }
     
     public void agregarUsuario(Vertice vertice) {
-        usuario.add(vertice.toString());
+        usuario.add(vertice);
         numUsuarios++;
     }
 
-    public void agregarConexion(int origen, int destino) {
-        matrizAdyacencia[origen][destino] = 1;
-        matrizAdyacencia[destino][origen] = 1;
+    public void agregarConexion(Vertice origen, Vertice destino) {
+        Vertice user = getUsuario(origen);
+        if (user != null) {
+            user.conexion.add(new Arista(origen, destino));
+        }
+        //matrizAdyacencia[origen][destino] = 1;
+        //matrizAdyacencia[destino][origen] = 1;
     }
+    
+//    public void agregarConexion(int origen, int destino) {
+//        matrizAdyacencia[origen][destino] = 1;
+//        //matrizAdyacencia[destino][origen] = 1;
+//    }
     
     public void eliminarConexion(int origen, int destino) {
         matrizAdyacencia[origen][destino] = 0;
-        matrizAdyacencia[destino][origen] = 0;
+        //matrizAdyacencia[destino][origen] = 0;
     }
     
     public boolean existeConexion(int origen, int destino) {
@@ -71,7 +78,7 @@ public class Grafo {
             escritor.println("# Usuario = " + vertice.getNombre());
             
         }
-        escritor.println("Conexiones = " + getConexiones());
+        //escritor.println("Conexiones = " + getConexiones());
         escritor.close();
     }
     
@@ -79,39 +86,40 @@ public class Grafo {
         return numUsuarios;
     }
 
-    public void cargarArchivo(File archivo) throws FileNotFoundException, IOException {
-        JFileChooser selectorArchivos = new JFileChooser();
+    public String cargarArchivo(File archivo) throws FileNotFoundException, IOException {
+        //JFileChooser selectorArchivos = new JFileChooser();
         Grafo grafo = new Grafo();
-        int resultado = selectorArchivos.showOpenDialog(null);
-        if (resultado == JFileChooser.APPROVE_OPTION) {
-            archivo = selectorArchivos.getSelectedFile();
+        //int resultado = selectorArchivos.showOpenDialog(null);
+        //if (resultado == JFileChooser.APPROVE_OPTION) {
+            //archivo = selectorArchivos.getSelectedFile();
             FileReader lector = new FileReader(archivo);
             BufferedReader buffer = new BufferedReader(lector);
             String linea;
-            while ((linea = buffer.readLine()) != null) {
-                String[] campos = linea.split(" ");
-                if (campos[0].equals("#")) {
-                    continue;
-                }
-                int id = Integer.parseInt(campos[0]);
-                String nombre = campos[1];
-                grafo.agregarUsuario(new Vertice(id, nombre));
-                String[] amigos = campos[2].split(",");
-                for (String amigo : amigos) {
-                    int idAmigo = Integer.parseInt(amigo);
-                    grafo.agregarConexion(new Vertice(id, nombre).id , new Vertice(idAmigo, nombre).id);
-                }
+            boolean addConexion = false;
+            String grafo_txt="";
+            while((linea = buffer.readLine())!= null){
+                if (!linea.isEmpty()){
+                    grafo_txt += linea+ "\n";
+                } 
             }
             buffer.close();
-            JOptionPane.showMessageDialog(null, "Los datos cargados en memoria se han perdido.");
-        }
+            
+            return grafo_txt;
+            
     }
 
-    public List<String> getUsuarios() {
+    public List<Vertice> getUsuarios() {
         return usuario;
     }
-
-    public List<List<String>> getConexiones() {
-        return conexiones;
+    
+    public Vertice getUsuario(Vertice usuario) {
+        Vertice item = null;
+        for(Vertice item2 : getUsuarios()){
+            if (item2.id == usuario.id)
+                return item2;
+        }
+        return item;
     }
+
+
 }
