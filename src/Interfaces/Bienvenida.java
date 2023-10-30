@@ -44,8 +44,7 @@ public class Bienvenida extends javax.swing.JFrame {
         CargarArchivo = new javax.swing.JButton();
         ViewGrafo = new javax.swing.JButton();
         AgregarUser = new javax.swing.JButton();
-        IdentificadorComponentes = new javax.swing.JButton();
-        ActulizarRepositorio = new javax.swing.JButton();
+        AgregarRelacion = new javax.swing.JButton();
         DeleteUser = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -97,25 +96,28 @@ public class Bienvenida extends javax.swing.JFrame {
         });
         getContentPane().add(AgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 30));
 
-        IdentificadorComponentes.setBackground(new java.awt.Color(0, 0, 102));
-        IdentificadorComponentes.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
-        IdentificadorComponentes.setForeground(new java.awt.Color(204, 204, 255));
-        IdentificadorComponentes.setText("Identificador de componentes");
-        IdentificadorComponentes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(IdentificadorComponentes, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 210, 30));
-
-        ActulizarRepositorio.setBackground(new java.awt.Color(0, 0, 102));
-        ActulizarRepositorio.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        ActulizarRepositorio.setForeground(new java.awt.Color(204, 204, 255));
-        ActulizarRepositorio.setText("Actualizar repositorio");
-        ActulizarRepositorio.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(ActulizarRepositorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, 190, 30));
+        AgregarRelacion.setBackground(new java.awt.Color(0, 0, 102));
+        AgregarRelacion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
+        AgregarRelacion.setForeground(new java.awt.Color(204, 204, 255));
+        AgregarRelacion.setText("Agregar Relacion");
+        AgregarRelacion.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        AgregarRelacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarRelacionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(AgregarRelacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 190, 30));
 
         DeleteUser.setBackground(new java.awt.Color(0, 0, 102));
         DeleteUser.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
         DeleteUser.setForeground(new java.awt.Color(204, 204, 255));
         DeleteUser.setText("Eliminar usuario");
         DeleteUser.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        DeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteUserActionPerformed(evt);
+            }
+        });
         getContentPane().add(DeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 190, 30));
 
         jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 3, 48)); // NOI18N
@@ -144,6 +146,9 @@ public class Bienvenida extends javax.swing.JFrame {
 
     private void AgregarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUserActionPerformed
         // TODO add your handling code here:
+        AgregarUsuario adding = new AgregarUsuario();
+       adding.setVisible(true);
+       adding.setLocationRelativeTo(null);
     }//GEN-LAST:event_AgregarUserActionPerformed
 
     private void CargarArchivoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CargarArchivoActionPerformed
@@ -178,6 +183,20 @@ public class Bienvenida extends javax.swing.JFrame {
 //            }
 //        }
     }//GEN-LAST:event_CargarArchivoActionPerformed
+
+    private void DeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserActionPerformed
+        // TODO add your handling code here:
+        EliminarUsuario delete = new EliminarUsuario();
+        delete.setVisible(true);
+        delete.setLocationRelativeTo(null);
+    }//GEN-LAST:event_DeleteUserActionPerformed
+
+    private void AgregarRelacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarRelacionActionPerformed
+        // TODO add your handling code here:
+        AgregarRelacion relations = new AgregarRelacion();
+        relations.setVisible(true);
+        relations.setLocationRelativeTo(null);
+    }//GEN-LAST:event_AgregarRelacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,11 +234,10 @@ public class Bienvenida extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ActulizarRepositorio;
+    private javax.swing.JButton AgregarRelacion;
     private javax.swing.JButton AgregarUser;
     private javax.swing.JButton CargarArchivo;
     private javax.swing.JButton DeleteUser;
-    private javax.swing.JButton IdentificadorComponentes;
     private javax.swing.JButton ViewGrafo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel6;

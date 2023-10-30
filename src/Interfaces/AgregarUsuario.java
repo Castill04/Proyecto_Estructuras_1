@@ -4,6 +4,8 @@
  */
 package Interfaces;
 
+import Funciones.FunctionTXT;
+import Funciones.LeerArchivo;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +21,9 @@ public class AgregarUsuario extends javax.swing.JFrame {
         initComponents();
     }
 
+    //FunctionTXT f = new FunctionTXT();
+    //LeerArchivo content = new LeerArchivo();
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,14 +36,10 @@ public class AgregarUsuario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        newuser = new javax.swing.JTextField();
+        userName = new javax.swing.JTextField();
         AgregarUser = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        listuser = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
+        userId = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         Exit1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -57,12 +58,12 @@ public class AgregarUsuario extends javax.swing.JFrame {
         jLabel1.setText("Nombre de Usuario : ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
 
-        newuser.addActionListener(new java.awt.event.ActionListener() {
+        userName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newuserActionPerformed(evt);
+                userNameActionPerformed(evt);
             }
         });
-        getContentPane().add(newuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 230, -1));
+        getContentPane().add(userName, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 60, 230, -1));
 
         AgregarUser.setBackground(new java.awt.Color(0, 0, 153));
         AgregarUser.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -74,38 +75,13 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 AgregarUserActionPerformed(evt);
             }
         });
-        getContentPane().add(AgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 250, 140, 30));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Lista de Usuarios : ");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
-
-        listuser.setToolTipText("");
-        listuser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listuserActionPerformed(evt);
-            }
-        });
-        getContentPane().add(listuser, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 170, 230, -1));
-
-        jButton2.setBackground(new java.awt.Color(0, 0, 153));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Relacion");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, 110, 30));
+        getContentPane().add(AgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 140, 30));
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Id_user: ");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel4.setText("Seleccione con que usuario de la lista se relacionara");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, -1, -1));
+        getContentPane().add(userId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 100, -1));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 10)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
@@ -122,48 +98,75 @@ public class AgregarUsuario extends javax.swing.JFrame {
                 Exit1ActionPerformed(evt);
             }
         });
-        getContentPane().add(Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 320, 50, -1));
+        getContentPane().add(Exit1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 230, 50, -1));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Sin título-3_page-0001.jpg"))); // NOI18N
         jLabel6.setText("jLabel6");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 370));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void newuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newuserActionPerformed
+    private void userNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newuserActionPerformed
-
-    private void listuserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listuserActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listuserActionPerformed
+    }//GEN-LAST:event_userNameActionPerformed
 
     private void AgregarUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarUserActionPerformed
         // TODO add your handling code here:
-        
-        //boolean run = useFunctions.validarAgregarUser(grafo, newuser.getText(),listuser.getText());
+        LeerArchivo f = new LeerArchivo();
+        FunctionTXT content = new FunctionTXT();
+        String infoGrafo = f.leertxt("test\\proyecto.txt");
+        String[] users = content.getUsuarios(infoGrafo);
+        String[] relaciones = content.getRelaciones(infoGrafo);
+        boolean valido = validarUser(users, userId.getText(),userName.getText());
        
-//        if(run){
-//            
-//            newuser = newuser.getText();
-//            
-//            User newuser = new User(newuser);
-//            User user2 = new User(usuario2, iduser2);
-//            grafo.addVertex(user1);
-//            grafo.addVertex(user2);
-//            grafo.addEdge(user1, user2, years);
-//            txt.modificarUsuarioRelacion(iduser1, iduser2, usuario1, usuario2, years);}
-//            JOptionPane.showMessageDialog(null, "Usuarios agregados");
-//        id1.setText("");
-//        id2.setText("");
-//        user1.setText("");
-//        user2.setText("");
-//        weight.setText("");
+        if(!valido){
+            JOptionPane.showMessageDialog(null, "El usuario no cumple con la estructura requerida o ya existe\nPor favor intentelo de nuevo");
+        }
+        else {
+            String contenidoFile = "Usuarios\n";  
+            for (int i = 1; i < users.length; i++) {
+                contenidoFile += users[i] + "\n";               
+            }
+            contenidoFile += userId.getText() + ", " + userName.getText() + "\n";
+            contenidoFile += "Relaciones\n";
+            for (int j = 1; j < relaciones.length; j++) {
+                contenidoFile += relaciones[j]+ "\n";      
+            }
+
+            content.escribir_txt(contenidoFile);
+        }
     }//GEN-LAST:event_AgregarUserActionPerformed
 
+    private boolean validarUser(String[] users, String userId, String userName) {
+        try{
+            Integer.parseInt(userId);
+            if (userName.trim().charAt(0) != '@'){
+                return false;     
+            }
+            
+            for (int i = 1; i < users.length; i++) {
+               String[] info = users[i].trim().split(",");
+               String username = info[1].trim();
+               String id = info[0].trim();  
+               if (Integer.parseInt(id) == Integer.parseInt(userId)) {
+                   return false;
+               }
+               if (userName == username) {
+                   return false;
+               }  
+            }
+            
+        }catch(Exception e){
+            return false;
+        }
+        return true;
+    }
+            
+            
     private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_Exit1ActionPerformed
 
     /**
@@ -204,17 +207,13 @@ public class AgregarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AgregarUser;
     private javax.swing.JButton Exit1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JComboBox<String> listuser;
-    private javax.swing.JTextField newuser;
+    private javax.swing.JTextField userId;
+    private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables
 }

@@ -184,7 +184,7 @@ public class CargarTxT extends javax.swing.JFrame {
         JFileChooser fileChooser = new JFileChooser();
         int resultado = fileChooser.showOpenDialog(null);
         if (resultado == JFileChooser.APPROVE_OPTION) {
-            //try {
+
             File archivo = fileChooser.getSelectedFile();
             try {
                 
@@ -192,19 +192,7 @@ public class CargarTxT extends javax.swing.JFrame {
                 FunctionTXT use = new FunctionTXT();
                 String[] users = use.getUsuarios(infoGrafo);
                 String[] relaciones = use.getRelaciones(infoGrafo);
-//                txtPanel.append("Usuarios");
-//                for (int i = 1; i < users.length; i++) {
-//                    String[] info = users[i].trim().split(",");
-//                    String username = info[1].trim();
-//                    String id = info[0].trim();
-//                    String usuarioTxt = id + ", " + username;
-//                    txtPanel.append(usuarioTxt);                
-//                }
-                //txt.append("Relaciones");
-//                tring infoGrafo = grafo.cargarArchivo(archivo);
-//                FunctionTXT use = new FunctionTXT();
-//                String[] users = use.getUsuarios(infoGrafo);
-//                String[] relaciones = use.getRelaciones(infoGrafo);
+
                 txtPanel.append("Usuarios\n");
                 for (int i = 1; i < users.length; i++) {
                     String[] info = users[i].trim().split(",");
@@ -215,12 +203,12 @@ public class CargarTxT extends javax.swing.JFrame {
                 }
                 txtPanel.append("Relaciones\n");
                 for (int j = 1; j < relaciones.length; j++) {
-                        String[] relationships = relaciones[j].trim().split(",");
-                        int id1 = Integer.parseInt(relationships[0].trim());
-                        int id2 = Integer.parseInt(relationships[1].trim());
-                        String relacionTxt = id1 + ", " + id2+ "\n";
-                        txtPanel.append(relacionTxt);      
-                    }
+                    String[] relationships = relaciones[j].trim().split(",");
+                    int id1 = Integer.parseInt(relationships[0].trim());
+                    int id2 = Integer.parseInt(relationships[1].trim());
+                    String relacionTxt = id1 + ", " + id2+ "\n";
+                    txtPanel.append(relacionTxt);      
+                }
                 
             } catch (IOException ex) {
                 //Logger.getLogger(Bienvenida.class.getName()).log(Level.ERROR, null, ex);
@@ -228,25 +216,6 @@ public class CargarTxT extends javax.swing.JFrame {
             
                 
         }
-//            List<String> conexionTxt = new ArrayList<>();
-//            for (int i = 0; i < grafo.getUsuarios().size(); i++) {
-//                Vertice usuario = grafo.getUsuarios().get(i);
-//                //System.out.println("Usuario: " + grafo.getUsuarios().get(i));
-//                String usuarioTxt = usuario.getId() + ", " + usuario.getNombre();
-//                txt.append(usuarioTxt);
-//                for (Arista conexion : usuario.getConexions()) {
-//                    conexionTxt.add(conexion.getStart().getId() + ", " + conexion.getEnd().getId());
-//                    //System.out.println("Conexión: " + conexion.getStart().getNombre() + " --> " + conexion.getEnd().getNombre());
-//                    
-//                }
-//            }
-//            } catch (FileNotFoundException ex) {
-//                
-//            }
-//            } catch (IOException ex) {
-//                
-//            }
-        //}
     }//GEN-LAST:event_BuscarArchivoActionPerformed
 
     /**

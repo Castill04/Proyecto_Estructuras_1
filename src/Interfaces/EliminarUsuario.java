@@ -4,7 +4,11 @@
  */
 package Interfaces;
 
+import Funciones.FunctionGrafo;
+import Funciones.FunctionTXT;
+import Funciones.LeerArchivo;
 import javax.swing.JOptionPane;
+import static proyecto1.main.grafo;
 
 /**
  *
@@ -17,7 +21,13 @@ public class EliminarUsuario extends javax.swing.JFrame {
      */
     public EliminarUsuario() {
         initComponents();
+        
+        InicializarComboBox();
     }
+    
+    LeerArchivo f = new LeerArchivo();
+    FunctionTXT content = new FunctionTXT();
+    FunctionGrafo fGraph = new FunctionGrafo();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,7 +39,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        usereliminado = new javax.swing.JComboBox<>();
+        UserEliminado = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         Eliminar = new javax.swing.JButton();
         Exit1 = new javax.swing.JButton();
@@ -41,14 +51,14 @@ public class EliminarUsuario extends javax.swing.JFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, -1, -1));
 
-        usereliminado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        usereliminado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        usereliminado.addActionListener(new java.awt.event.ActionListener() {
+        UserEliminado.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        UserEliminado.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        UserEliminado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usereliminadoActionPerformed(evt);
+                UserEliminadoActionPerformed(evt);
             }
         });
-        getContentPane().add(usereliminado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 240, 30));
+        getContentPane().add(UserEliminado, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 240, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -65,7 +75,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
                 EliminarActionPerformed(evt);
             }
         });
-        getContentPane().add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 150, 30));
+        getContentPane().add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 150, 30));
 
         Exit1.setBackground(new java.awt.Color(255, 255, 255));
         Exit1.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
@@ -88,31 +98,78 @@ public class EliminarUsuario extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-//        Object selected = usereliminado.getSelectedItem();
-//        String usuario = selected.toString();
-//        JOptionPane.showMessageDialog(null, "Usuario "+ usuario+ " eliminado");
-//        User deleted = null;
-//        User compare = null;
-//        NodoVertex pointer = listaUsers.getHead();
-//        while (deleted == null){
-//            compare = (User) pointer.getElement();
-//            if (compare.getUsername().equals(usuario)){
-//                deleted = compare;
-//            }
-//            pointer = pointer.getNext();
-//        } grafo.deleteVertex(compare);
-//        txt.eliminarUsuariosTxt(compare);
-//        SelectUser.removeItem(selected);
+String infoGrafo = f.leertxt("test\\proyecto.txt");
+        String[] users = content.getUsuarios(infoGrafo);
+        String[] relaciones = content.getRelaciones(infoGrafo);
+        Object selectedItem1 = UserEliminado.getSelectedItem(); 
+        int userIdEliminar = getUserIdByName(users, selectedItem1.toString());
+        int response = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea eliminar el usuario? Se eliminarán las relaciones existente en el sistema");
+        if (response == JOptionPane.YES_OPTION) {
+            
+            String contenidoFile = "Usuarios\n";  
+            for (int i = 1; i < users.length; i++) {
+                String[] info = users[i].trim().split(",");
+                String username = info[1].trim();
+                //String id = info[0].trim();
+                if (!username.equalsIgnoreCase(selectedItem1.toString())) {
+                    contenidoFile += users[i] + "\n";  
+                }                         
+            }
+            contenidoFile += "Relaciones\n";
+            for (int j = 1; j < relaciones.length; j++) {
+                String[] relationships = relaciones[j].trim().split(",");
+                int id1 = Integer.parseInt(relationships[0].trim());
+                int id2 = Integer.parseInt(relationships[1].trim());
+                if (id1 != userIdEliminar && id2 != userIdEliminar) {
+                    contenidoFile += relaciones[j]+ "\n";   
+                }               
+            }
+            
+            content.escribir_txt(contenidoFile);
+                       
+            String[] usuariosActualizados = content.getUsuarios(contenidoFile);
+            String[] relacionesActualizadas = content.getRelaciones(contenidoFile);                
+            grafo = fGraph.crearGrafo(usuariosActualizados, relacionesActualizadas);  
+            JOptionPane.showMessageDialog(null, "Usuario eliminado exitosamente");
+        }
+
     }//GEN-LAST:event_EliminarActionPerformed
 
-    private void usereliminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usereliminadoActionPerformed
+    private void UserEliminadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UserEliminadoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_usereliminadoActionPerformed
+    }//GEN-LAST:event_UserEliminadoActionPerformed
 
     private void Exit1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Exit1ActionPerformed
         // TODO add your handling code here:
+        this.dispose();
     }//GEN-LAST:event_Exit1ActionPerformed
 
+    
+    private void InicializarComboBox() {
+        
+        String infoGrafo = f.leertxt("test\\proyecto.txt");
+        String[] users = content.getUsuarios(infoGrafo);
+        String[] relaciones = content.getRelaciones(infoGrafo);
+        for (int i = 1; i < users.length; i++) {
+            String[] info = users[i].trim().split(",");
+            String username = info[1].trim();
+            String id = info[0].trim();  
+            UserEliminado.addItem(username);
+         }
+    }
+    
+    private int getUserIdByName(String[] users, String selectedItemName) {
+        for (int i = 1; i < users.length; i++) {
+            String[] info = users[i].trim().split(",");
+            String username = info[1].trim();
+            String id = info[0].trim();  
+            if (username.equalsIgnoreCase(selectedItemName)) {
+                return Integer.parseInt(id);
+            }
+        }
+        return -1;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -151,9 +208,9 @@ public class EliminarUsuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Eliminar;
     private javax.swing.JButton Exit1;
+    private javax.swing.JComboBox<String> UserEliminado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JComboBox<String> usereliminado;
     // End of variables declaration//GEN-END:variables
 }

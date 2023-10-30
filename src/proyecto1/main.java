@@ -25,10 +25,10 @@ public class main {
     public static void main(String[] args) throws FileNotFoundException, IOException {
 
         LeerArchivo f = new LeerArchivo();
-        FunctionTXT use = new FunctionTXT();
+        FunctionTXT content = new FunctionTXT();
         String infoGrafo = f.leertxt("test\\proyecto.txt");
-        String[] users = use.getUsuarios(infoGrafo);
-        String[] relaciones = use.getRelaciones(infoGrafo);
+        String[] users = content.getUsuarios(infoGrafo);
+        String[] relaciones = content.getRelaciones(infoGrafo);
         FunctionGrafo grafoFunctions = new FunctionGrafo();
         grafo = grafoFunctions.crearGrafo(users, relaciones);
         
@@ -37,23 +37,6 @@ public class main {
         window.setLocationRelativeTo(null);
         window.setResizable(false);
         
-        
-        //var window = new FunctionalRequirements(); 
-        //Grafo grafo = new Grafo();
-        
-
-//        JFileChooser fileChooser = new JFileChooser();
-//        int resultado = fileChooser.showOpenDialog(null);
-//        if (resultado == JFileChooser.APPROVE_OPTION) {
-//            File archivo = fileChooser.getSelectedFile();
-//            grafo.cargarArchivo(archivo);
-//            for (int i = 0; i < grafo.getUsuarios().size(); i++) {
-//                System.out.println("Usuario: " + grafo.getUsuarios().get(i));
-//                for (String conexion : grafo.getConexiones().get(i)) {
-//                    System.out.println("Conexión: " + conexion);
-//                }
-//            }
-//        }
     }
     
     
