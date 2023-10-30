@@ -19,7 +19,7 @@ import static proyecto1.main.grafo;
 
 /**
  *
- * @author yaxim
+ * @author francisco
  */
 public class Bienvenida extends javax.swing.JFrame {
 
@@ -155,33 +155,8 @@ public class Bienvenida extends javax.swing.JFrame {
         CargarTxT archivo = new CargarTxT();
         archivo.setVisible(true);
         archivo.setLocationRelativeTo(null);
-// TODO add your handling code here:
-        //Grafo grafo = new Grafo();
-        
-//
-//        JFileChooser fileChooser = new JFileChooser();
-//        int resultado = fileChooser.showOpenDialog(null);
-//        if (resultado == JFileChooser.APPROVE_OPTION) {
-//            //try {
-//            File archivo = fileChooser.getSelectedFile();
-//            try {
-//                grafo.cargarArchivo(archivo);
-//            } catch (IOException ex) {
-//                Logger.getLogger(Bienvenida.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            for (int i = 0; i < grafo.getUsuarios().size(); i++) {
-//                System.out.println("Usuario: " + grafo.getUsuarios().get(i));
-//                for (String conexion : grafo.getConexiones().get(i)) {
-//                    System.out.println("Conexión: " + conexion);
-//                }
-//            }
-//            } catch (FileNotFoundException ex) {
-//                
-//            }
-//            } catch (IOException ex) {
-//                
-//            }
-//        }
+        // TODO add your handling code here:
+
     }//GEN-LAST:event_CargarArchivoActionPerformed
 
     private void DeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteUserActionPerformed

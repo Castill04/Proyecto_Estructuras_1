@@ -45,11 +45,7 @@ public class FunctionGrafo {
                 String[] relationships = relaciones[j].trim().split(",");
                 int id1 = Integer.parseInt(relationships[0].trim());
                 int id2 = Integer.parseInt(relationships[1].trim());
-                //int years = Integer.parseInt(relationships[2].trim());
                 List<Vertice> usersGrafo = grafoAux.getUsuarios();
-//                NodoVertex pointer = usersGrafo.getHead();
-//                User userAux = (User) pointer.getElement();
-//                int idAux = userAux.getUserID();
                 Vertice idName1 = getUsuarioByID(usersGrafo, id1);
                 Vertice idName2 = getUsuarioByID(usersGrafo, id2);
                 if (idName1 != null && idName2 != null){
@@ -75,83 +71,6 @@ public class FunctionGrafo {
         } return name;
     }
     
-//    public boolean validarAgregarUser (Grafo grafo,String idUser1, String idUser2, String username1,String username2, String years){
-//        try{
-//            if (username1.charAt(0)!='@' || username2.charAt(0)!='@'){
-//                    JOptionPane.showMessageDialog(null, "Error: Recuerde colocar @ antes de los usernames de los usuarios");
-//                    return false;
-//            }
-//            int year = Integer.parseInt(years);
-//            int id1 = Integer.parseInt(idUser1);
-//            int id2 = Integer.parseInt(idUser2);
-//
-//            if (id1 == id2){
-//                JOptionPane.showMessageDialog(null, "Error: Recuerde que dos usuarios no pueden tener el mismo id");
-//                return false;
-//            } if (username1.equalsIgnoreCase(username2)){
-//                JOptionPane.showMessageDialog(null, "Error: Recuerde que dos usuarios no pueden tener el mismo username");
-//                return false;
-//            }
-//            User usuario1 = new User(username1, id1);
-//            User usuario2 = new User(username2, id2);
-//            ListaVertex listaUsers = grafo.getUserList();
-//            for (NodoVertex pointer = listaUsers.getHead(); pointer != listaUsers.getTail(); pointer = pointer.getNext()) {
-//                User usuarioComparar =(User) pointer.getElement();
-//                String usernameComparar = usuarioComparar.getUsername();
-//                int idComparar = usuarioComparar.getUserID();
-////                if((usuario1.getUserID() == idComparar && !usuario1.getUsername().equalsIgnoreCase(usernameComparar)) || (usuario1.getUserID() != idComparar && usuario1.getUsername().equalsIgnoreCase(usernameComparar))){
-////                    JOptionPane.showMessageDialog(null, "Error: Los valores del usuario 1 no coinciden con los guardados en el sistema.\nRecuerde que un usuario tiene un unico id y username");
-////                    return false;
-////                } if((usuario2.getUserID() == idComparar && !usuario2.getUsername().equalsIgnoreCase(usernameComparar)) || (usuario2.getUserID() != idComparar && usuario2.getUsername().equalsIgnoreCase(usernameComparar))){
-////                    JOptionPane.showMessageDialog(null, "Error: Los valores del usuario 2 no coinciden con los guardados en el sistema.\nRecuerde que un usuario tiene un unico id y username");
-////                    return false;
-////                }; 
-//                if( idComparar == id1 ){
-//                    JOptionPane.showMessageDialog(null, "El usuario 1 ya esta registrado en el sistema. Ingrese solo usuarios nuevos.");
-//                    return false;
-//                } if (idComparar == id2){
-//                    JOptionPane.showMessageDialog(null, "El usuario 2 ya esta registrado en el sistema. Ingrese solo usuarios nuevos.");
-//                    return false;
-//                }
-//
-//        }}catch(Exception e){
-//            JOptionPane.showMessageDialog(null, "Error: Recuerde solo ingresar numeros enteros en los ids y en los años de amistad");
-//            return false;
-//        } 
-//        return true;
-//        
-//    
-//        }
-    
-//    public boolean validarAddUser (Grafo grafo,String idUser1, String username1){
-//        try{
-//            if (username1.charAt(0)!='@'){
-//                    JOptionPane.showMessageDialog(null, "Error: Recuerde colocar @ antes de los usernames de los usuarios");
-//                    return false;
-//            }
-//            int id1 = Integer.parseInt(idUser1);
-//
-//            ListaVertex listaUsers = grafo.getUserList();
-//            for (NodoVertex pointer = listaUsers.getHead(); pointer != listaUsers.getTail(); pointer = pointer.getNext()) {
-//                User usuarioComparar =(User) pointer.getElement();
-//                String usernameComparar = usuarioComparar.getUsername();
-//                int idComparar = usuarioComparar.getUserID();
-//                if( idComparar == id1 ){
-//                    JOptionPane.showMessageDialog(null, "Ya existe un usuario registrado con el id "+id1+"\nIngrese unicamente usuarios nuevos por favor.");
-//                    return false;
-//                } else if( usernameComparar.trim().equalsIgnoreCase(username1)){
-//                    JOptionPane.showMessageDialog(null, "Ya existe un usuario registrado con el username "+username1+"\nIngrese unicamente usuarios nuevos por favor.");
-//                    return false;
-//                }
-//
-//        }}catch(Exception e){
-//            JOptionPane.showMessageDialog(null, "Error: Recuerde solo ingresar numeros enteros como id");
-//            return false;
-//        } 
-//        return true;
-//        
-//    
-//        }
            
     public void viewGraph(Graph graph) {
         JFrame frame = new JFrame();
@@ -183,21 +102,19 @@ public class FunctionGrafo {
         
         for (int i=0;i<grafo.getUsuarios().size();i++){
             Vertice user = grafo.getUsuarios().get(i);
-            //String userid = grafo.getUserList().getDato(i).getElement().getUsername();
             String userid = user.getNombre();
             graph.addNode(userid).setAttribute("ui.label",userid);
         }
         // Se recorre la lista de adyacencia de nuestro grafo para añadir los arcos y pesos al grafo de GraphStream
         for (int i=0; i < grafo.getUsuarios().size(); i++){
             Vertice friend1 = grafo.getUsuarios().get(i);
-            //NodoVertex node1 = grafo.getUserList().getDato(i);
             for (int j=0; j<friend1.getConexions().size(); j++){
                 Arista friend2 = friend1.getConexions().get(j);
-                //String weight = String.valueOf(node1.getFriendList().getDato(j).getWeight());
                 String id = friend1.getNombre() + friend2.getEnd().getNombre();
                 graph.addEdge(id, friend1.getNombre(), friend2.getEnd().getNombre(), false);
             }
-    } return graph;
+        } 
+        return graph;
     }
     
 }

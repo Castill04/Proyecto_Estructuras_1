@@ -12,7 +12,7 @@ import static proyecto1.main.grafo;
 
 /**
  *
- * @author yaxim
+ * @author francisco
  */
 public class AgregarRelacion extends javax.swing.JFrame {
 
@@ -190,7 +190,7 @@ public class AgregarRelacion extends javax.swing.JFrame {
         
         String infoGrafo = f.leertxt("test\\proyecto.txt");
         String[] users = content.getUsuarios(infoGrafo);
-        //String[] relaciones = content.getRelaciones(infoGrafo);
+
         for (int i = 1; i < users.length; i++) {
             String[] info = users[i].trim().split(",");
             String username = info[1].trim();

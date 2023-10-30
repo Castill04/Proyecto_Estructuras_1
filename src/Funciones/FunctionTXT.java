@@ -15,11 +15,7 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-//import proyecto.pkg1.Grafo.Grafo;
-//import proyecto.pkg1.Grafo.ListaVertex;
-//import proyecto.pkg1.Grafo.NodoVertex;
-//import proyecto.pkg1.Grafo.User;
-//import static proyecto.pkg1.Main.grafo;
+
 
 /**
  *
@@ -94,8 +90,6 @@ public class FunctionTXT {
                  
              } for (int i = 1; i < relations.length; i++) {
                  String[] relacion = relations[i].split(",");
-//                String user1 = relacion[0];
-//                String user2 = relacion[1];
                
                  try{
                      Integer.parseInt(relacion[0].trim());
@@ -182,48 +176,14 @@ public class FunctionTXT {
         String[] relations = relaciones.split("\n");
         String relacionesFinal ="";
         String agregar = users +"\n\nRelaciones\n";
-//        for (int i = 1; i < relations.length; i++) {
-//            String[] ids = relations[i].trim().split(",");
-//            if ((Integer.parseInt(ids[0].trim()) != id1 || Integer.parseInt(ids[1].trim())!= id2) && (Integer.parseInt(ids[0].trim()) != id2 || Integer.parseInt(ids[1].trim())!= id1)){
-//                relacionesFinal += relations[i]+"\n";
-//            }else{
-//                relacionesFinal += String.valueOf(id1) +"," + String.valueOf(id2)+","+String.valueOf(years)+"\n";
-//            }}
         for (int i = 1; i < relations.length; i++) {
             String[] ids = relations[i].trim().split(",");
-                relacionesFinal += relations[i]+"\n";
-//                relacionesFinal += String.valueOf(id1) +"," + String.valueOf(id2)+","+String.valueOf(years)+"\n";
-            }
+            relacionesFinal += relations[i]+"\n";
+        }
         agregar += relacionesFinal + String.valueOf(id1) +"," + String.valueOf(id2)+","+String.valueOf(years);
         escribir_txt(agregar);
     }
     
-//    public void eliminarUsuariosTxt (User usuario){
-//        LeerArchivo read = new LeerArchivo();
-//        String document = read.leertxt("test\\TxtProyecto.txt");
-//        String[] separar = document.split("Relaciones");
-//        String usuarios = separar [0];
-//        String[] users = usuarios.split("\n");
-//        String[] separando = document.split("Relaciones");
-//        String relaciones = separando[1];
-//        String[] relations = relaciones.split("\n");
-//        String usuariosFinal = "Usuarios\n";
-//        String relacionesFinal = "Relaciones\n";
-//        for (int i = 1; i < users.length; i++) {
-//            String[] usernames = users[i].split(",");
-//            if (!usernames[1].trim().equals(usuario.getUsername())){
-//                usuariosFinal += users[i]+"\n";
-//            }
-//        }for (int i = 1; i < relations.length; i++) {
-//            String[] ids = relations[i].trim().split(",");
-//            if (Integer.parseInt(ids[0].trim()) != usuario.getUserID() && Integer.parseInt(ids[1].trim())!= usuario.getUserID()){
-//                relacionesFinal += relations[i]+"\n";
-//        }}
-//        String agregar = usuariosFinal + relacionesFinal;
-//        escribir_txt(agregar);
-//        
-//        
-//    }
     
     public void agregarUser (String username, int id){
         LeerArchivo read = new LeerArchivo();

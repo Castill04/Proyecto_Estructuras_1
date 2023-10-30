@@ -24,7 +24,7 @@ import static proyecto1.main.grafo;
 
 /**
  *
- * @author yaxim
+ * @author francisco
  */
 public class CargarTxT extends javax.swing.JFrame {
 
@@ -145,7 +145,7 @@ public class CargarTxT extends javax.swing.JFrame {
 
     private void GuardarCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarCambiosActionPerformed
         // TODO add your handling code here:
-        //if (guardar){
+
         int response = JOptionPane.showConfirmDialog(this, "¿Esta seguro que desea guardar los nuevos datos? Se reemplazara la base de datos existente en el sistema");
         if (response == JOptionPane.YES_OPTION) {
             String contenidoFile = txtPanel.getText();
@@ -163,11 +163,7 @@ public class CargarTxT extends javax.swing.JFrame {
         }
         else{
             JOptionPane.showMessageDialog(null, "No se han guardado los datos");
-        }
-//        } else{
-//            JOptionPane.showMessageDialog(null, "Por favor ingrese un archivo con la estructura requerida\npara actualizar la base de datos del sistema");
-//        }   
-        
+        }        
     }//GEN-LAST:event_GuardarCambiosActionPerformed
 
     private void ExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitActionPerformed
@@ -211,7 +207,7 @@ public class CargarTxT extends javax.swing.JFrame {
                 }
                 
             } catch (IOException ex) {
-                //Logger.getLogger(Bienvenida.class.getName()).log(Level.ERROR, null, ex);
+               
             }
             
                 

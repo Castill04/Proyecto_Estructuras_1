@@ -22,14 +22,12 @@ import javax.swing.*;
  */
 public class Grafo {
     private List<Vertice> usuario;
-    //private List<List<String>> conexiones;
     private int[][] matrizAdyacencia;
     private int numVertices;
     private int numUsuarios;
 
     public Grafo() {
         this.usuario = new ArrayList<>();
-        //this.conexiones = new ArrayList<>();
         this.matrizAdyacencia = new int[numVertices][numVertices];
         this.numUsuarios = 0;
     }
@@ -108,40 +106,6 @@ public class Grafo {
             
             return grafo_txt;
             
-           
-            
-//            while ((linea = buffer.readLine()) != null) {
-//                String[] campos = linea.split(" ");
-//                if (campos[0].equals("Conexion")) {
-//                   addConexion = true;
-//                   continue;
-//                }
-////                if (campos[0].equals("#")) {
-////                    continue;
-////                }
-//                if (!addConexion) {
-//                int id = Integer.parseInt(campos[0]);
-//                String nombre = campos[1];
-//                grafo.agregarUsuario(new Vertice(id, nombre));
-//                }
-//                else {
-//                     String[] relation = campos[0].split(",");
-//                     int idorigin = Integer.parseInt(relation[0]);
-//                     int iddestino = Integer.parseInt(relation[1]);
-//                     //grafo.agregarConexion(idorigin, iddestino);
-//                }
-                
-                
-//                String[] amigos = campos[2].split(",");
-//                for (String amigo : amigos) {
-//                    int idAmigo = Integer.parseInt(amigo);
-//                        grafo.agregarConexion(new Vertice(id, nombre).id , new Vertice(idAmigo, nombre).id);
-//                }
-            //}
-            //buffer.close();
-            //return grafo;
-            //JOptionPane.showMessageDialog(null, "Los datos cargados en memoria se han perdido.");
-        //}
     }
 
     public List<Vertice> getUsuarios() {
@@ -157,7 +121,5 @@ public class Grafo {
         return item;
     }
 
-//    public List<List<String>> getConexiones() {
-//        return conexiones;
-//    }
+
 }

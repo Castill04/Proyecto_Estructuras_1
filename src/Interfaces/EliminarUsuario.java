@@ -12,7 +12,7 @@ import static proyecto1.main.grafo;
 
 /**
  *
- * @author yaxim
+ * @author francisco
  */
 public class EliminarUsuario extends javax.swing.JFrame {
 
@@ -98,7 +98,7 @@ public class EliminarUsuario extends javax.swing.JFrame {
 
     private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
         // TODO add your handling code here:
-String infoGrafo = f.leertxt("test\\proyecto.txt");
+        String infoGrafo = f.leertxt("test\\proyecto.txt");
         String[] users = content.getUsuarios(infoGrafo);
         String[] relaciones = content.getRelaciones(infoGrafo);
         Object selectedItem1 = UserEliminado.getSelectedItem(); 
