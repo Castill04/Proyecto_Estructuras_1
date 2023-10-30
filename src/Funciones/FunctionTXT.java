@@ -106,11 +106,7 @@ public class FunctionTXT {
           
        }
     
-    /**
-     * Funcion que separa el contenido del archivo para obtener el array de usuarios
-     * @param content, contenido del archivo seleccionado por el usuario
-     * @return Array users, array de usuarios con sus ids y @usernames
-     */
+    
     public String[] getUsuarios (String content){
         String[] separar = content.split("Relaciones");
         String usuarios = separar [0];

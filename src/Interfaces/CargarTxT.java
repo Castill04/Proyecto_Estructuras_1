@@ -111,9 +111,11 @@ public class CargarTxT extends javax.swing.JFrame {
         getContentPane().add(GuardarCambios, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 150, 30));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(204, 204, 255));
         jLabel1.setText("Contenido del archivo seleccionado: ");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, -1, -1));
 
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("!!!RECORDATORIO!!!");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 110, -1, -1));
 

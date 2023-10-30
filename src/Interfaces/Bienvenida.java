@@ -68,7 +68,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 CargarArchivoActionPerformed(evt);
             }
         });
-        getContentPane().add(CargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 190, 30));
+        getContentPane().add(CargarArchivo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 190, 30));
 
         ViewGrafo.setBackground(new java.awt.Color(0, 0, 102));
         ViewGrafo.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -80,7 +80,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 ViewGrafoActionPerformed(evt);
             }
         });
-        getContentPane().add(ViewGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 210, 190, 30));
+        getContentPane().add(ViewGrafo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 190, 30));
 
         AgregarUser.setBackground(new java.awt.Color(0, 0, 102));
         AgregarUser.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -94,7 +94,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 AgregarUserActionPerformed(evt);
             }
         });
-        getContentPane().add(AgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 190, 30));
+        getContentPane().add(AgregarUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, 190, 30));
 
         AgregarRelacion.setBackground(new java.awt.Color(0, 0, 102));
         AgregarRelacion.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -106,7 +106,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 AgregarRelacionActionPerformed(evt);
             }
         });
-        getContentPane().add(AgregarRelacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 190, 30));
+        getContentPane().add(AgregarRelacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 190, 30));
 
         DeleteUser.setBackground(new java.awt.Color(0, 0, 102));
         DeleteUser.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
@@ -118,7 +118,7 @@ public class Bienvenida extends javax.swing.JFrame {
                 DeleteUserActionPerformed(evt);
             }
         });
-        getContentPane().add(DeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 190, 30));
+        getContentPane().add(DeleteUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 190, 30));
 
         jLabel6.setFont(new java.awt.Font("Swis721 BlkEx BT", 3, 48)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
