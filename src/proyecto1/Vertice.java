@@ -5,16 +5,19 @@
  */
 package proyecto1;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class Vertice {
     public int id;
     public String nombre;
-    public Arista conexion;
+    public List<Arista> conexion;
 
     public Vertice(int id, String nombre) {
             this.id = id;
             this.nombre = nombre;
-            this.conexion = conexion;
+            this.conexion = new ArrayList<>();
         }
 
 
@@ -26,12 +29,12 @@ public class Vertice {
             return nombre;
         }
 
-    public Arista getConexion() {
+    public List<Arista> getConexions() {
         return conexion;
     }
 
     public void setConexion(Arista conexion) {
-        this.conexion = conexion;
+        this.conexion.add(conexion);
     }
     
     
